@@ -1,0 +1,4 @@
+Q1. SQL Statement QUERY
+
+
+SELECT * FROM (SELECT code, ROUND(AVG(govt_debt / gdp_per_capita)*100, 2) AS percent_gov_debt, COUNT(year) AS year_count FROM countries WHERE year > date_part('year', now())-4 AND gdp_per_capita >= 400 GROUP BY code ORDER BY percent_gov_debt DESC) AS countries_by_gdp WHERE year_count = 4;
